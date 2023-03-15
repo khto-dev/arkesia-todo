@@ -1,0 +1,31 @@
+{
+  "name": "arkesia-todo",
+  "version": "1.0.0",
+  "description": "Lost Ark todo list and party planner",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khto-dev/arkesia-todo.git"
+  },
+  "author": "khto-dev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khto-dev/arkesia-todo/issues"
+  },
+  "homepage": "https://github.com/khto-dev/arkesia-todo#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cookieparser": "^0.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.1",
+    "morgan": "^1.10.0",
+    "validator": "^13.9.0"
+  }
+}
