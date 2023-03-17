@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     displayname: { // Formatted as {name}#{DDDD} where D is a number
         type: String,
         required: [true, "Please enter a name"],
-        unique: [true, "Name already taken"],
+        unique: true,
     },
     region: { // Allowed values: NAE, NAW, EUC, EUW
         type: String,
@@ -57,11 +57,11 @@ userSchema.statics.login = async function(email, password) {
     const user = await this.findOne({ email });
 
     // Check if a user with provided email exists
-    if(user) {
+    if (user) {
         const auth = await bcrypt.compare(password, user.password);
         
         // Check if password is correct
-        if(auth) {
+        if (auth) {
             return user;
         }
         // If authentication failed, password was incorrect
