@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
         required: [true, "Please enter a password"],
         minlength: [8, "Password must be at least 8 characters long"],
     },
-    displayName: { // Formatted as {name}#{DDDD} where D is a number
+    displayname: { // Formatted as {name}#{DDDD} where D is a number
         type: String,
         required: [true, "Please enter a name"],
-        unique: true,
+        unique: [true, "Name already taken"],
     },
     region: { // Allowed values: NAE, NAW, EUC, EUW
         type: String,
