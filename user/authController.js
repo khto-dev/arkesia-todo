@@ -30,7 +30,7 @@ const handleErrors = (err) => {
         }
         // Duplicate display name
         if (Object.keys(err.keyPattern).includes("displayname")) {
-            errors.email = "That name is already taken";
+            errors.displayname = "That name is already taken";
         }
     }
 
