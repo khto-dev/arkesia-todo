@@ -64,7 +64,7 @@ userSchema.statics.login = async function(email, password) {
         if(auth) {
             return user;
         }
-        // If authorization failed, password was incorrect
+        // If authentication failed, password was incorrect
         throw Error("incorrect password");
     }
     // If email not in database, user is not registered
