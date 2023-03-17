@@ -45,6 +45,32 @@ const userSchema = new mongoose.Schema({
     }
 });
 
+// Password hashing before saving
+userSchema.pre("save", async function(next) {
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+
+// Login method
+userSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
+
+    // Check if a user with provided email exists
+    if(user) {
+        const auth = await bcrypt.compare(password, user.password);
+        
+        // Check if password is correct
+        if(auth) {
+            return user;
+        }
+        // If authorization failed, password was incorrect
+        throw Error("incorrect password");
+    }
+    // If email not in database, user is not registered
+    throw Error("incorrect email");
+}
 
 const User = mongoose.model("user", userSchema);
+
 module.exports = User;
